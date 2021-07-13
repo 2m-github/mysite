@@ -1,15 +1,31 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
 import Home from '../views/Home.vue'
+import FullBase from '../container/FullBase.vue'
+
 
 Vue.use(VueRouter)
-
+const pageLoad = (component) => {
+  return () => import(`../views/${component}.vue`);
+}
 const routes = [
   {
     path: '/',
-    name: 'Home',
-    component: Home
+    component: FullBase,
+    children: [
+      {
+        path: '/parallax',
+        name: 'Parallax',
+        component: pageLoad('Parallax')
+      },
+      {
+        path: '/home',
+        name: 'Home',
+        component: pageLoad('Home')
+      }
+    ]
   },
+  
   {
     path: '/about',
     name: 'About',
@@ -25,5 +41,9 @@ const router = new VueRouter({
   base: process.env.BASE_URL,
   routes
 })
+
+// router.afterEach((to, from, next) => {
+//   import('@/assets/scss/style.scss')
+// })
 
 export default router
