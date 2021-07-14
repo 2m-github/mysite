@@ -39,14 +39,25 @@
 export default {
     mounted(){
         var $menu = $(".gnb > li");
+        var $subMenu = $(".sub_menu > li");
         $menu.on("mouseenter focusin",function(){
+            $(this).addClass("on").siblings("li").removeClass("on");
             $(".sub_menu").show();
         }).on("mouseleave",function(){
+            $(this).removeClass("on");
             $(".sub_menu").hide();
-        })
+        });
         $("#login").focusin(function(){
             $(".sub_menu").hide();
-        })
+            $menu.removeClass("on");
+        });
+
+        
+        $subMenu.on("mouseenter focusin",function(){
+            $(this).addClass("on");
+        }).on("mouseleave focusout",function(){
+            $(this).removeClass("on");
+        });
     }
 }
 </script>

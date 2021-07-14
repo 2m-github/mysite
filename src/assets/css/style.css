@@ -462,6 +462,12 @@ legend,
   text-overflow: ellipsis;
   white-space: nowrap;
 }
+.tab > li.on {
+  background-color: #41b883;
+}
+.tab > li.on > a {
+  color: white;
+}
 .tab > li.on > .tab_cont {
   display: block;
 }
@@ -518,11 +524,15 @@ legend,
   margin-top: 25px;
   margin-left: 20px;
 }
+.gnb > li.on > a {
+  color: #41b883;
+}
 .gnb > li > a {
   display: flex;
   justify-content: center;
   align-items: center;
   height: 50px;
+  color: #35495e;
   font-family: "Do Hyeon", sans-serif;
   font-size: 2rem;
 }
@@ -544,6 +554,12 @@ legend,
   box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.2);
 }
 .gnb .sub_menu > li {
+  text-align: center;
+}
+.gnb .sub_menu > li.on a, .gnb .sub_menu > li > a:hover {
+  display: block;
+  background-color: #41b883;
+  color: white;
   text-align: center;
 }
 

@@ -30,8 +30,15 @@
             text-overflow: ellipsis;
             white-space: nowrap;
         }
+        &.on {
+            background-color: $green;
+            & > a {
+                color: $white;
+            }
+        }
         &.on > .tab_cont {
             display: block;
+        
         }
     }
     
