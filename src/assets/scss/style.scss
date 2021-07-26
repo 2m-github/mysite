@@ -1,10 +1,15 @@
 @charset 'utf-8';
 
-@import "./colors.scss";
-@import "./fonts.scss";
-@import "./mixin.scss";
-@import "./base.scss";
 
 
-@import "./main.scss";
-@import "./common.scss";
+@import 
+'./colors',
+'./mixin',
+'./fonts',
+'./base',
+'./common',
+'./main'
+
+
+
+

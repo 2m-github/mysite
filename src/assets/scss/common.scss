@@ -1,4 +1,7 @@
 
+@import 'colors';
+@import 'mixin';
+@import 'fonts';
 
 .wrap {
     position: relative;
@@ -9,23 +12,33 @@
 }
 #header {
     width: 100%;
+    height: 100px;
     @include fixed;
     z-index: 99;
     background-color: $white;
+    box-shadow: 0px 4px 4px 0px rgba(0,0,0,0.2);
+    transition: height .2s;
+    &.on {
+        height: auto;
+        transition: height .2s;
+    }
     & > .container {
         display: flex;
+        align-items: flex-start;
     }
 }
-.logo {
-    width: 100px;
+.logo img {
+    height: 80px;
 }
 .gnb {
     flex: 1;
     display: grid;
     grid-template-columns: repeat(auto-fit,150px);
-    //grid-gap: 10px;
-    margin-top: 25px;
     margin-left: 20px;
+    margin-top: 25px;
+    & > li {
+        height: 100%;
+    }
     & > li.on > a {
         color: $green;
     }
@@ -41,20 +54,22 @@
         
     }
     .sub_menu {
+        position: relative;
         display:none;
         width: 100%;
-        margin:10px 0;
+        padding:10px 0;
         // @include absolute(0,50px);
-        &::before {
-            content: '';
-            width: 100vw;
-            height: calc(100% - 75px);
-            background-color: $gray;
-            @include absoluteLB(50vw,0);
-            z-index: -1;
-            transform: translateX(-50vw);
-            box-shadow: 0px 4px 4px 0px rgba(0,0,0,0.2)
-        }
+        // &::before {
+        //     content: '';
+        //     width: 200vw;
+            
+        //     height: 100%;
+        //     background-color: $gray;
+        //     @include absoluteLB(0,0);
+        //     z-index: -1;
+        //     transform: translateX(-100vw);
+        //     box-shadow: 0px 4px 4px 0px rgba(0,0,0,0.2)
+        // }
         & > li {
             text-align: center;
         }
@@ -74,8 +89,66 @@
 }
 
 .util {
-    margin-top:20px;
     a {
         margin:0 10px;
     }
+}
+.m_btn_menu {
+    display: none;
+}
+
+/* mobile */
+
+@media screen and (max-width:800px) {
+#header {
+    
+    height: 60px;
+    &.on {
+        height: 60px;
+    }
+    .container {
+        display: block;
+        height: 100%;
+        padding: 0 20px;
+        flex-direction: column;
+    
+    }
+    .logo {
+        width: 100%;
+        height: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        img {
+            height: 50px;
+        }
+    }
+}
+.gnb {
+    display: none;
+    width: 100%;
+    position: absolute;
+    left: 0;
+    top: 60px;
+    margin: 0;
+    background-color: $gray;
+}
+.sub_menu {
+    display: none;
+}
+.util {
+    display: none;
+}
+.m_btn_menu {
+    display: block;
+    position: absolute;
+    right: 20px;
+    top: 50%;
+    width: 40px;
+    height: 40px;
+    font-size: 1.6rem;
+    transform: translateY(-50%);
+}
+
 }

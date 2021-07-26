@@ -3,12 +3,12 @@
     left: 0;
     top: 0;
 }
-@mixin absoluteLT( $x, $y) {
+@mixin absoluteLT( $x:0, $y:0) {
     position: absolute;
     left: $x;
     top: $y;
 }
-@mixin absoluteLB( $x, $y) {
+@mixin absoluteLB( $x:0, $y:0) {
     position: absolute;
     left: $x;
     bottom: $y;
@@ -47,7 +47,7 @@
   }
 
   @mixin screenCenter {
-      width: 1200px;
+      max-width: 1200px;
       margin: 0 auto;
   }
   @mixin shadow($color) {

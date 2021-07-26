@@ -1,7 +1,11 @@
 <template>
     <div id="header">
         <div class="container">
-            <h1 class="logo"><a href="/"><img src="@/assets/logo.png" class="full_size" alt="logo"></a></h1>
+            <h1 class="logo"><a href="/"><img src="@/assets/logo.png" alt="logo"></a></h1>
+            <button class="m_btn_menu" @click="menu()">
+                <span class="sr_only">메뉴</span>
+                <fa icon="bars" />
+            </button>
             <ul class="gnb">
                 <li>
                     <a href="#">회사소개</a>
@@ -37,27 +41,22 @@
 
 <script>
 export default {
+    data(){
+        return {
+            isMenu:false
+        }
+    },
+    methods:{
+        menu(){
+            $(".gnb").show();
+        }
+    },
     mounted(){
-        var $menu = $(".gnb > li");
-        var $subMenu = $(".sub_menu > li");
-        $menu.on("mouseenter focusin",function(){
-            $(this).addClass("on").siblings("li").removeClass("on");
-            $(".sub_menu").show();
-        }).on("mouseleave",function(){
-            $(this).removeClass("on");
-            $(".sub_menu").hide();
-        });
-        $("#login").focusin(function(){
-            $(".sub_menu").hide();
-            $menu.removeClass("on");
-        });
+        
 
         
-        $subMenu.on("mouseenter focusin",function(){
-            $(this).addClass("on");
-        }).on("mouseleave focusout",function(){
-            $(this).removeClass("on");
-        });
     }
 }
 </script>
+
+
