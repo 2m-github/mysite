@@ -14,7 +14,7 @@ Vue.component('fa', FontAwesomeIcon);
 
 import './assets/js/common.js';
 
-import './assets/css/style.css';
+import './assets/scss/style.scss';
 
 
 Vue.config.productionTip = false;

@@ -72,6 +72,11 @@
           </li>
         </ul>
         <!-- // tab -->
+
+        <!-- 최신영화 -->
+        <div class="list">
+          
+        </div>
       </div>
     </div>
   </div>
@@ -134,6 +139,11 @@ export default {
 }
 
 </script>
-<style>
+<style lang="scss">
 
+$red:yellow;
+
+.home {
+  background-color: $red;
+}
 </style>
