@@ -84,7 +84,7 @@
 
 <script>
 
-
+import * as api from '@/store/api';
 
 export default {
   name: 'Home',
@@ -97,8 +97,16 @@ export default {
         { title: '4444', img: '/cdn/main/parallax-4.jpg', url: '/'}
       ],
       defaultSwiper: null,
-      slideAuto:true
+      slideAuto:true,
+      topRated:null
     }
+  },
+  created(){
+    api.movies('/top_rated').then( res => {
+      this.topRated = res.data.resualt
+    }).catch( err => {
+      console.log('top rated',err)
+    })
   },
   methods: {
     slideAutoPlay(){
