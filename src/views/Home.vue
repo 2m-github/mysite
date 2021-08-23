@@ -42,7 +42,7 @@
             <div class="tab_cont">
               <ul>
                 <li><a href="#">공지사항1 제목입니다.</a></li>
-                <li><a href="#">공지사항 제목입니다.</a></li>
+                <li><a href="#">공지사항 2 제목입니다.</a></li>
                 <li><a href="#">공지사항 제목입니다.</a></li>
                 <li><a href="#">공지사항 제목입니다.</a></li>
               </ul>
