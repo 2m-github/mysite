@@ -22,6 +22,11 @@ const routes = [
         path: '/home',
         name: 'Home',
         component: pageLoad('Home')
+      },
+      {
+        path: '/movie_detail/:movieID?',
+        name: 'MovieDetail',
+        component: pageLoad('MovieDetail')
       }
     ]
   },

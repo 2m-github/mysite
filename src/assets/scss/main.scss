@@ -20,6 +20,7 @@
     position: relative;
     display: grid;
     grid-template-columns: repeat(auto-fit,100px);
+    height: 130px;
     & > li {
         
         & > a {
@@ -33,9 +34,10 @@
             white-space: nowrap;
         }
         &.on {
-            background-color: $green;
+            
             & > a {
                 color: $white;
+                background-color: $green;
             }
         }
         &.on > .tab_cont {
@@ -48,6 +50,45 @@
 .tab_cont {
     display: none;
     @include absoluteLT(0,30px)
+}
+
+.list {
+    & > ul {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        & > li {
+            position: relative;
+            overflow: hidden;
+            .cont {
+                position: absolute;
+                left: 0;
+                bottom: 0;
+                width: 100%;
+                padding: 20px;
+                background: rgba(0,0,0,0.5);
+                color: rgba(255,255,255,0.8);
+                box-sizing: border-box;
+                box-shadow: 0 -5px 20px 20px rgb(0 0 0 / 50%);
+                & h1 {
+                    font-size: 20px;
+
+                }
+                & p {
+                    position: relative;
+                    height: 100px;
+                    overflow: hidden;
+                   margin: 10px 0;
+                }
+                & span {
+                    // position: absolute;
+                    right: 20px;
+                    bottom: 20px;
+                    display: block;
+                    text-align: left;
+                }
+            }
+        }
+    }
 }
 
 $sizes: 40px, 50px, 60px;

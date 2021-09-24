@@ -75,7 +75,20 @@
 
         <!-- 최신영화 -->
         <div class="list">
-          
+         
+          <ul>
+            <li v-for="(item, key) in topRated" :key="key" @click="detailPage(item.id)">
+              <div class="img">
+                <img :src="`http://image.tmdb.org/t/p/w400${item.poster_path}`" alt="">
+                <!-- <img :src="`http://image.tmdb.org/t/p/w400${item.backdrop_path}`" alt=""> -->
+              </div>
+              <div class="cont">
+                <h1>{{item.title}}</h1>
+                <p>{{item.overview}}</p>
+                <span>{{item.release_date}}</span>
+              </div>
+            </li>
+          </ul>
         </div>
       </div>
     </div>
@@ -98,17 +111,23 @@ export default {
       ],
       defaultSwiper: null,
       slideAuto:true,
-      topRated:null
+      topRated:[]
     }
   },
   created(){
-    api.movies('/top_rated').then( res => {
-      this.topRated = res.data.resualt
+    api.movies('/movie/top_rated').then( res => {
+      console.log("movie", res)
+      this.topRated = res.data.results
     }).catch( err => {
       console.log('top rated',err)
     })
+    
+  },
+  computed:{
+    
   },
   methods: {
+    
     slideAutoPlay(){
       if(!this.slideAuto){
         this.defaultSwiper.autoplay.start()
@@ -127,6 +146,14 @@ export default {
     slideNext(){
       this.defaultSwiper.slideNext();
       this.slideAuto = false
+    },
+    detailPage(id){
+      this.$router.push({
+        name:'MovieDetail',
+        params: {
+          movieID: id
+        }
+      })
     }
   },
   mounted(){
@@ -149,9 +176,5 @@ export default {
 </script>
 <style lang="scss">
 
-$red:yellow;
 
-.home {
-  background-color: $red;
-}
 </style>
