@@ -1,7 +1,7 @@
 <template>
     <div id="header">
         <div class="container">
-            <h1 class="logo"><a href="/"><img src="@/assets/logo.png" alt="logo"></a></h1>
+            <h1 class="logo"><a href="/home"><img src="@/assets/logo.png" alt="logo"></a></h1>
             <button class="m_btn_menu" @click="menu()">
                 <span class="sr_only">메뉴</span>
                 <fa icon="bars" />
